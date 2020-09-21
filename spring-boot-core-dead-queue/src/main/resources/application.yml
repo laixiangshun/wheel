@@ -1,0 +1,14 @@
+server:
+  port: 12003
+  servlet:
+    context-path: /dead-queue
+spring:
+  application:
+    name: dead-queue
+  rabbitmq:
+    host: localhost
+    port: 5672
+    virtual-host: /mall
+    username: mall
+    password: mall
+    publisher-confirms: true #如果对异步消息需要回调必须设置为true

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-elasticsearch/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-kafka-flink/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-flink/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-flink/kafka-flink-redis/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-bean-atowrite/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-redission/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-datasource/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-dead-queue/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-aop/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-zipkin/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-zipkin/zipkin-server/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-zipkin/zipkin-node1/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-zipkin/zipkin-node2/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-kafka/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-mybatis-plus/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-apollo/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-elasticsearch-common/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-elk/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-pay-center/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-websocket/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-core-websocket-netty/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/spring-boot-core-common/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

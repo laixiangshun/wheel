@@ -1,0 +1,40 @@
+#配置kafka
+spring:
+  zipkin:
+    enabled: true
+  sleuth:
+    enabled: false
+    sampler:
+      percentage: 1.0
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          zkNodes: localhost:2181
+  application:
+    name: zipkin-server
+    #ES配置
+zipkin:
+  storage:
+    type: elasticsearch
+#    StorageComponent: elasticsearch
+    elasticsearch:
+      hosts: localhost:9200
+      cluster: es
+      index: zipkin
+      index-shards: 1
+      index-replicas: 1
+server:
+  port: 8081
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: ${eureka.instance.ip-address}
+    instance-id: ${eureka.instance.hostname}:${server.port}
+    ip-address: localhost
+    lease-expiration-duration-in-seconds: 20
+    lease-renewal-interval-in-seconds: 10
+    prefer-ip-address: true

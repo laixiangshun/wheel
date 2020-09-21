@@ -1,0 +1,24 @@
+server:
+  port: 10023
+  servlet:
+    context-path: /data-source
+
+spring:
+  application:
+    name: data-source
+  datasource:
+    master:
+      jdbc-url: jdbc:mysql://localhost:3306/test
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+    slave1:
+      jdbc-url: jdbc:mysql://localhost:3306/test
+      username: root   # ֻ从数据库1
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+    slave2:
+      jdbc-url: jdbc:mysql://localhost:3306/test
+      username: root   # ֻ从数据库2
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver

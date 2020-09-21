@@ -1,0 +1,19 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: 10.39.1.96
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 10
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enableSelfPreservation: false
+    evictionIntervalTimerInMs: 5000
+    useReadOnlyResponseCache: false
+spring:
+  application:
+    name: eurka-server

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <!--引入在application.properties文件中的变量-->
+    <property resource="application.properties"/>
+
+    <!-- 项目名， 在application.properties中定义的 -->
+    <contextName>${spring.application.name}</contextName>
+    <!-- 日志级别 -->
+    <property name="logLevel" value="INFO"/>
+    <!-- 最大保存时间 -->
+    <property name="maxHistory" value="180"/>
+    <!-- 异步缓冲队列的深度,该值会影响性能.默认值为256 -->
+    <property name="queueSize" value="512"/>
+
+    <!-- 日志路径，${catalina.home}是该项目当前tomcat的路径。 -->
+    <property name="logPath" value="/logs/${spring.application.name}"/>
+
+    <springProperty scope="context" name="appName" source="spring.application.name" defaultValue="elk"/>
+
+    <property name="CONSOLE_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %-40.40logger{35} - %msg%n"/>
+
+    <!-- 控制台输出 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度 %msg：日志消息，%n是换行符-->
+            <pattern>${CONSOLE_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+
+    <!-- 日志记录器，日期滚动记录 -->
+    <appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <!-- 正在记录的日志文件的路径及文件名 -->
+        <file>${logPath}/info.log</file>
+
+        <!-- 日志记录器的滚动策略，按日期记录 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 归档的日志文件的路径-->
+            <fileNamePattern>${logPath}/info.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>${maxHistory}</maxHistory>
+        </rollingPolicy>
+
+        <!-- 追加方式记录日志 -->
+        <append>true</append>
+
+        <!-- 日志文件的格式 -->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${CONSOLE_PATTERN}</pattern>
+        </encoder>
+
+        <!-- 此日志文件只记录info、warn、error 级别的 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>info</level>
+        </filter>
+
+    </appender>
+
+    <appender name="ASYNC_LOG_INFO" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>${queueSize}</queueSize>
+        <appender-ref ref="FILE_INFO"/>
+    </appender>
+
+    <!--定义logstash 传输方式 以及地址-->
+    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>${logstash_host}:${logstash_port}</destination>
+        <!--        <destination>${logstashHost}</destination>-->
+        <!--        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">-->
+        <!--            <includeCallerData>true</includeCallerData>-->
+        <!--            <pattern>${appname} | %d | %-5level| %logger{15} - %msg</pattern>-->
+        <!--            <pattern>${CONSOLE_PATTERN}</pattern>-->
+        <!--Spring Cloud Sleuth 使用-->
+        <!--            <includeMdcKeyName>traceId</includeMdcKeyName>-->
+        <!--            <includeMdcKeyName>spanId</includeMdcKeyName>-->
+        <!--            <includeMdcKeyName>spanExportable</includeMdcKeyName>-->
+        <!--            <providers>-->
+        <!--                <timestamp>-->
+        <!--                    <timeZone>UTC</timeZone>-->
+        <!--                </timestamp>-->
+        <!--                <pattern>-->
+        <!--                    <pattern>-->
+        <!--                        {-->
+        <!--                        "level": "%level",-->
+        <!--                        "service": "${appName:-}",-->
+        <!--                        "trace": "%X{X-B3-TraceId:-}",-->
+        <!--                        "span": "%X{X-B3-SpanId:-}",-->
+        <!--                        "exportable": "%X{X-Span-Export:-}",-->
+        <!--                        "pid": "${PID:-}",-->
+        <!--                        "thread": "%thread",-->
+        <!--                        "class": "%logger{40}",-->
+        <!--                        "message": "%message"-->
+        <!--                        }-->
+        <!--                    </pattern>-->
+        <!--                </pattern>-->
+        <!--            </providers>-->
+        <!--        </encoder>-->
+        <keepAliveDuration>5 minutes</keepAliveDuration>
+        <connectionStrategy>
+            <roundRobin>
+                <connectionTTL>5 minutes</connectionTTL>
+            </roundRobin>
+        </connectionStrategy>
+        <reconnectionDelay>1 second</reconnectionDelay>
+        <writeBufferSize>16384</writeBufferSize>
+        <queueSize>1048576</queueSize>
+        <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ASYNC_LOG_INFO"/>
+        <appender-ref ref="LOGSTASH"/>
+    </root>
+
+    <springProfile name="prod">
+        <root level="info">
+            <appender-ref ref="LOGSTASH"/>
+        </root>
+    </springProfile>
+</configuration>

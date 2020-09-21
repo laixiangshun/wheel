@@ -1,0 +1,30 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: ${eureka.instance.ip-address}
+    instance-id: ${eureka.instance.hostname}:${server.port}
+    ip-address: localhost
+    lease-expiration-duration-in-seconds: 20
+    lease-renewal-interval-in-seconds: 10
+    prefer-ip-address: true
+server:
+  port: 8083
+spring:
+  application:
+    name: zipkin-node2
+  sleuth:
+    enabled: false
+    async:
+      enabled: true
+      configurer:
+        enabled: true
+    sampler:
+      percentage: 1.0
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          zk-nodes: localhost:2181

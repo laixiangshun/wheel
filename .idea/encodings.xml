@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-aop" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-apollo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-bean-atowrite" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-chain" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-datasource" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-datasource/src/main/resources/application.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-dead-queue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-elasticsearch" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-elasticsearch-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-elk" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-flink" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-flink/flink-cep" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-flink/flink-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-flink/flink-kafka-influxdb" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-flink/flink-rabbitmq" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-flink/flink-udf" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-flink/kafka-flink-redis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-kafka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-kafka-flink" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-kafka/src/main/resources/application.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-mybatis-plus" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-pay-center" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-redission" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-websocket" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-websocket-netty" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-zipkin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-zipkin/zipkin-node1" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-zipkin/zipkin-node2" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-core-zipkin/zipkin-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-gateway" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

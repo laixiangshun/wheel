@@ -1,0 +1,44 @@
+eureka:
+  instance:
+    hostname: localhost
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 10
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+server:
+  port: 8500
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+        step: 1m
+        descriptions: true
+      jmx:
+        enabled: true
+    tags:
+      application: ${spring.application.name}
+  endpoint:
+    health:
+      show-details: always
+spring:
+  application:
+    name: spring-gateway
+  redis:
+    host: 10.39.1.111
+    timeout: 5000
+    port: 6379
+    database: 8
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #开启默认转发
+          lower-case-service-id: true

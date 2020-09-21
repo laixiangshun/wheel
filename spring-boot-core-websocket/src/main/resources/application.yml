@@ -1,0 +1,7 @@
+spring:
+  rabbitmq:
+    host: ${rabbitmq.host}
+    port: ${rabbitmq.port}
+    username: ${rabbitmq.i5x.username}
+    password: ${rabbitmq.i5x.password}
+    virtual-host: ${rabbitmq.i5x.vhost}
