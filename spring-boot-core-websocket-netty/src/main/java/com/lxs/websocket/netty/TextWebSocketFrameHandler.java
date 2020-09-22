@@ -1,6 +1,5 @@
 package com.lxs.websocket.netty;
 
-import cn.hutool.core.util.IdUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
@@ -21,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,7 +54,7 @@ public class TextWebSocketFrameHandler extends SimpleChannelInboundHandler<TextW
      */
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {
-        
+        log.info("-------------------------");
     }
     
     /**
@@ -80,25 +80,20 @@ public class TextWebSocketFrameHandler extends SimpleChannelInboundHandler<TextW
                 log.info(newUri);
                 request.setUri(newUri);
             }
-            log.info("连接地址：" + ctx.channel().remoteAddress());
-            String uName = String.valueOf(RandomNameUtil.getName());  //用来获取一个随机的用户名，可以用其他方式代替
-            //新用户接入
             Channel incoming = ctx.channel();
-            for (Channel channel : MyChannelHandlerPool.channelGroup) {
-//                channel.writeAndFlush(new TextWebSocketFrame("[新用户] - " + uName + " 加入"));
-                sendMessage(channel, "[新用户] - " + uName + " 加入", StrUtil.EMPTY);
-            }
-            UserMsg userMsg = new UserMsg();
-            userMsg.setId(paramMap.get("id"));
-            userMsg.setName(uName);
-            redisTemplate.save(incoming.id().asLongText(), userMsg);   //存储用户
-            MyChannelHandlerPool.channelGroup.add(ctx.channel());
-            sendMessage(ctx.channel(), "[新用户] - " + uName + " 加入", JSON.toJSONString(userMsg));
+            UserMsg userMsg = (UserMsg) redisTemplate.get(incoming.id().asLongText());
             
+            log.info("用户：{}，连接地址：{}", userMsg.getName(), ctx.channel().remoteAddress());
+            
+            userMsg.setId(paramMap.get("id"));
+            userMsg.setUpdateTime(new Date());
+            //存储用户
+            redisTemplate.save(incoming.id().asLongText(), userMsg);
+            sendMessage(ctx.channel(), "[新用户] - " + userMsg.getName() + " 加入", JSON.toJSONString(userMsg));
         } else if (msg instanceof TextWebSocketFrame) {
             //正常的TEXT消息类型
             TextWebSocketFrame frame = (TextWebSocketFrame) msg;
-            log.info("客户端收到服务器数据：" + frame.text());
+            log.info("服务器收到客户端数据：" + frame.text());
             sendAllMessage(ctx, frame.text());
         }
         super.channelRead(ctx, msg);
@@ -117,11 +112,13 @@ public class TextWebSocketFrameHandler extends SimpleChannelInboundHandler<TextW
                 sendMessage(channel, "[新用户] - " + uName + " 加入", StrUtil.EMPTY);
             }
             userMsg = new UserMsg();
-            userMsg.setId(IdUtil.fastUUID());
+//            userMsg.setId(IdUtil.fastUUID());
             userMsg.setName(uName);
-            redisTemplate.save(incoming.id().asLongText(), userMsg);   //存储用户
+            userMsg.setCreateTime(new Date());
+            //存储用户
+            redisTemplate.save(incoming.id().asLongText(), userMsg);
+            
             MyChannelHandlerPool.channelGroup.add(ctx.channel());
-            sendMessage(ctx.channel(), "[新用户] - " + uName + " 加入", JSON.toJSONString(userMsg));
         }
     }
     
@@ -155,7 +152,7 @@ public class TextWebSocketFrameHandler extends SimpleChannelInboundHandler<TextW
     }
     
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause)throws Exception {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         Channel incoming = ctx.channel();
         UserMsg userMsg = (UserMsg) redisTemplate.get(incoming.id().asLongText());
         log.info("用户:" + userMsg.getName() + "异常");
@@ -185,7 +182,6 @@ public class TextWebSocketFrameHandler extends SimpleChannelInboundHandler<TextW
         UserMsg userMsg = (UserMsg) redisTemplate.get(incoming.id().asLongText());
         for (Channel channel : MyChannelHandlerPool.channelGroup) {
             //将当前每个聊天内容进行存储
-            log.info("给用户：" + userMsg.getName() + "-发送数据：" + message);
             cacheTemplate.save(userMsg.getId(), userMsg.getName(), message);
             if (channel != incoming) {
 //                channel.writeAndFlush(new TextWebSocketFrame("[" + userMsg.getName() + "]" + message));

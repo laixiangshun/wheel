@@ -57,6 +57,7 @@ public class NettyConfig {
         return options;
     }
     
+    @SuppressWarnings("rawtypes")
     @Bean(name = "serverBootstrap")
     public ServerBootstrap bootstrap() {
         ServerBootstrap b = new ServerBootstrap();

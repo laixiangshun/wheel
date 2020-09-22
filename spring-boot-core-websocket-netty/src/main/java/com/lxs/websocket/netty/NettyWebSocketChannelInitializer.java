@@ -26,12 +26,13 @@ public class NettyWebSocketChannelInitializer extends ChannelInitializer<SocketC
     @Override
     protected void initChannel(SocketChannel socketChannel) throws Exception {
         ChannelPipeline pipeline = socketChannel.pipeline();
-        
+        //websocket协议本身是基于http协议的，所以这边也要使用http解编码器
         pipeline.addLast(new HttpServerCodec());
         pipeline.addLast(new HttpObjectAggregator(65536));
+        //以块的方式来写的处理器
         pipeline.addLast(new ChunkedWriteHandler());
-        pipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
         pipeline.addLast(textWebSocketFrameHandler);   //这里不能使用new，不然在handler中不能注入依赖
+        pipeline.addLast(new WebSocketServerProtocolHandler("/ws", null, true, 65536 * 10));
         
     }
 }

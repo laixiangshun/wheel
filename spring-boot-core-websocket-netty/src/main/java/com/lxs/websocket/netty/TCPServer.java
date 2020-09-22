@@ -2,6 +2,7 @@ package com.lxs.websocket.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,11 @@ public class TCPServer {
     private Channel serverChannel;
     
     public void start() throws Exception {
-        serverChannel = serverBootstrap.bind(tcpPort).sync().channel().closeFuture().sync().channel();
+//        serverChannel = serverBootstrap.bind(tcpPort).sync().channel().closeFuture().sync().channel();
+        ChannelFuture cf = serverBootstrap.bind(tcpPort).sync(); // 服务器异步创建绑定
+        log.info(TCPServer.class + " 启动正在监听： " + cf.channel().localAddress());
+        ChannelFuture channelFuture = cf.channel().closeFuture().sync();// 关闭服务器通道
+        serverChannel = channelFuture.channel();
     }
     
     @PreDestroy
