@@ -88,6 +88,7 @@
         <module>spring-boot-gateway</module>
         <module>spring-boot-core-websocket</module>
         <module>spring-boot-core-websocket-netty</module>
+        <module>spring-boot-core-redis-queue</module>
     </modules>
 
     <build>
