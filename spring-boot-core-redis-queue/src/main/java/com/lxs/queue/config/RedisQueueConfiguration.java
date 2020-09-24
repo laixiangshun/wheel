@@ -24,13 +24,20 @@ import java.util.Set;
  */
 @Slf4j
 @Configuration
-@ConditionalOnMissingBean(value = JedisSentinelPool.class)
-@ConditionalOnClass(value = JedisSentinelPool.class)
+@ConditionalOnMissingBean(value = {JedisPool.class, JedisSentinelPool.class, JedisCluster.class})
+@ConditionalOnClass(value = {JedisPool.class, JedisSentinelPool.class, JedisCluster.class})
 public class RedisQueueConfiguration {
     
     @Autowired
     private RedisProperties redisProperties;
     
+    /**
+     * redis单价模式
+     *
+     * @param jedisPoolConfig
+     * @return
+     * @throws NoSuchFieldException
+     */
     @Bean
     @ConditionalOnProperty(prefix = "spring.redis.host", matchIfMissing = true)
     public JedisPool jedisPool(JedisPoolConfig jedisPoolConfig) throws NoSuchFieldException {
@@ -62,6 +69,13 @@ public class RedisQueueConfiguration {
         }
     }
     
+    /**
+     * redis集群模式
+     *
+     * @param jedisPoolConfig
+     * @return
+     * @throws NoSuchFieldException
+     */
     @Bean
     @ConditionalOnProperty(prefix = "spring.redis.cluster")
     public JedisCluster jedisCluster(JedisPoolConfig jedisPoolConfig) throws NoSuchFieldException {

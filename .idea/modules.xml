@@ -8,7 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-flink/flink-rabbitmq/flink-rabbitmq.iml" filepath="$PROJECT_DIR$/spring-boot-core-flink/flink-rabbitmq/flink-rabbitmq.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-flink/flink-udf/flink-udf.iml" filepath="$PROJECT_DIR$/spring-boot-core-flink/flink-udf/flink-udf.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-flink/kafka-flink-redis/kafka-flink-redis.iml" filepath="$PROJECT_DIR$/spring-boot-core-flink/kafka-flink-redis/kafka-flink-redis.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring-boot-core.iml" filepath="$PROJECT_DIR$/spring-boot-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spring-boot-core.iml" filepath="$PROJECT_DIR$/.idea/spring-boot-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-aop/spring-boot-core-aop.iml" filepath="$PROJECT_DIR$/spring-boot-core-aop/spring-boot-core-aop.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-apollo/spring-boot-core-apollo.iml" filepath="$PROJECT_DIR$/spring-boot-core-apollo/spring-boot-core-apollo.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-bean-atowrite/spring-boot-core-bean-atowrite.iml" filepath="$PROJECT_DIR$/spring-boot-core-bean-atowrite/spring-boot-core-bean-atowrite.iml" />
@@ -23,15 +23,12 @@
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-kafka-flink/spring-boot-core-kafka-flink.iml" filepath="$PROJECT_DIR$/spring-boot-core-kafka-flink/spring-boot-core-kafka-flink.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-mybatis-plus/spring-boot-core-mybatis-plus.iml" filepath="$PROJECT_DIR$/spring-boot-core-mybatis-plus/spring-boot-core-mybatis-plus.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-pay-center/spring-boot-core-pay-center.iml" filepath="$PROJECT_DIR$/spring-boot-core-pay-center/spring-boot-core-pay-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-core-redis-queue/spring-boot-core-redis-queue.iml" filepath="$PROJECT_DIR$/spring-boot-core-redis-queue/spring-boot-core-redis-queue.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-redission/spring-boot-core-redission.iml" filepath="$PROJECT_DIR$/spring-boot-core-redission/spring-boot-core-redission.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-websocket/spring-boot-core-websocket.iml" filepath="$PROJECT_DIR$/spring-boot-core-websocket/spring-boot-core-websocket.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-websocket-netty/spring-boot-core-websocket-netty.iml" filepath="$PROJECT_DIR$/spring-boot-core-websocket-netty/spring-boot-core-websocket-netty.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring-boot-core-zipkin/spring-boot-core-zipkin.iml" filepath="$PROJECT_DIR$/spring-boot-core-zipkin/spring-boot-core-zipkin.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-eureka/spring-boot-eureka.iml" filepath="$PROJECT_DIR$/spring-boot-eureka/spring-boot-eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-gateway/spring-boot-gateway.iml" filepath="$PROJECT_DIR$/spring-boot-gateway/spring-boot-gateway.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring-boot-core-zipkin/zipkin-node1/zipkin-node1.iml" filepath="$PROJECT_DIR$/spring-boot-core-zipkin/zipkin-node1/zipkin-node1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring-boot-core-zipkin/zipkin-node2/zipkin-node2.iml" filepath="$PROJECT_DIR$/spring-boot-core-zipkin/zipkin-node2/zipkin-node2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring-boot-core-zipkin/zipkin-server/zipkin-server.iml" filepath="$PROJECT_DIR$/spring-boot-core-zipkin/zipkin-server/zipkin-server.iml" />
     </modules>
   </component>
 </project>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4">
-  <component name="ExternalSystem" externalSystem="Maven" />
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration />
@@ -11,8 +10,6 @@
         <sourceRoots>
           <root url="file://$MODULE_DIR$/src/main/java" />
           <root url="file://$MODULE_DIR$/src/main/resources" />
-          <root url="file://$MODULE_DIR$/../spring-boot-core-common/src/main/java" />
-          <root url="file://$MODULE_DIR$/../spring-boot-core-common/src/main/resources" />
         </sourceRoots>
       </configuration>
     </facet>
@@ -25,15 +22,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
-    </content>
-    <content url="file://$MODULE_DIR$/../spring-boot-core-common/src/main/java">
-      <sourceFolder url="file://$MODULE_DIR$/../spring-boot-core-common/src/main/java" isTestSource="false" />
-    </content>
-    <content url="file://$MODULE_DIR$/../spring-boot-core-common/src/main/resources">
-      <sourceFolder url="file://$MODULE_DIR$/../spring-boot-core-common/src/main/resources" type="java-resource" />
-    </content>
-    <content url="file://$MODULE_DIR$/../spring-boot-core-common/src/test/java">
-      <sourceFolder url="file://$MODULE_DIR$/../spring-boot-core-common/src/test/java" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
