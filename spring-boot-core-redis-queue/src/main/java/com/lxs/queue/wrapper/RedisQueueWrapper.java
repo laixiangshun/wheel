@@ -11,6 +11,7 @@ import java.lang.reflect.Proxy;
  */
 public class RedisQueueWrapper implements QueueWrapper {
     
+    @SuppressWarnings("unchecked")
     @Override
     public <T> T getInstance(Class<T> tClass) throws Exception {
         return (T) Proxy.newProxyInstance(tClass.getClassLoader(), new Class[]{tClass}, HandlerFactory.INSTANCE.instance(tClass));
