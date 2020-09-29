@@ -90,6 +90,7 @@
         <module>spring-boot-core-websocket-netty</module>
         <module>spring-boot-core-redis-queue</module>
         <module>spring-boot-core-ioc</module>
+        <module>spring-boot-core-netty-protobuf</module>
     </modules>
 
     <build>

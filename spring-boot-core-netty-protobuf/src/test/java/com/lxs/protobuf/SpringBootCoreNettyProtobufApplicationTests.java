@@ -1,10 +1,10 @@
-package com.lxs.ioc;
+package com.lxs.protobuf;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootCoreIocApplicationTests {
+class SpringBootCoreNettyProtobufApplicationTests {
     
     @Test
     void contextLoads() {

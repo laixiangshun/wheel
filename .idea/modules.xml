@@ -19,9 +19,11 @@
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-elasticsearch-common/spring-boot-core-elasticsearch-common.iml" filepath="$PROJECT_DIR$/spring-boot-core-elasticsearch-common/spring-boot-core-elasticsearch-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-elk/spring-boot-core-elk.iml" filepath="$PROJECT_DIR$/spring-boot-core-elk/spring-boot-core-elk.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-flink/spring-boot-core-flink.iml" filepath="$PROJECT_DIR$/spring-boot-core-flink/spring-boot-core-flink.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-core-ioc/spring-boot-core-ioc.iml" filepath="$PROJECT_DIR$/spring-boot-core-ioc/spring-boot-core-ioc.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-kafka/spring-boot-core-kafka.iml" filepath="$PROJECT_DIR$/spring-boot-core-kafka/spring-boot-core-kafka.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-kafka-flink/spring-boot-core-kafka-flink.iml" filepath="$PROJECT_DIR$/spring-boot-core-kafka-flink/spring-boot-core-kafka-flink.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-mybatis-plus/spring-boot-core-mybatis-plus.iml" filepath="$PROJECT_DIR$/spring-boot-core-mybatis-plus/spring-boot-core-mybatis-plus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-core-netty-protobuf/spring-boot-core-netty-protobuf.iml" filepath="$PROJECT_DIR$/spring-boot-core-netty-protobuf/spring-boot-core-netty-protobuf.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-pay-center/spring-boot-core-pay-center.iml" filepath="$PROJECT_DIR$/spring-boot-core-pay-center/spring-boot-core-pay-center.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-redis-queue/spring-boot-core-redis-queue.iml" filepath="$PROJECT_DIR$/spring-boot-core-redis-queue/spring-boot-core-redis-queue.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-core-redission/spring-boot-core-redission.iml" filepath="$PROJECT_DIR$/spring-boot-core-redission/spring-boot-core-redission.iml" />
