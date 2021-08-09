@@ -14,7 +14,7 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <es.version>6.5.4</es.version>
+        <es.version>6.8.17</es.version>
         <elasticutils.version>1.3</elasticutils.version>
     </properties>
 
