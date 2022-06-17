@@ -15,7 +15,7 @@
     <description>spring-boot-core-redis-queue</description>
 
     <properties>
-        <fastjson.version>1.2.9</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <commons-lang.version>3.1</commons-lang.version>
     </properties>
 
